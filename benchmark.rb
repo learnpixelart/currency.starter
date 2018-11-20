@@ -11,6 +11,8 @@ require 'csvreader'
 require_relative 'split'
 
 
+## "raw" string reader benchmark - no type inference and data conversion
+
 n = 1000
 Benchmark.bm(12) do |x|
   x.report( 'std:' )           { n.times do CSV.read( './MSFT.csv' ); end }
@@ -20,6 +22,10 @@ Benchmark.bm(12) do |x|
   x.report( 'reader:' )        { n.times do CsvReader.read( './MSFT.csv' ); end }
   x.report( 'reader(tab):' )   { n.times do CsvReader.tab.read( './MSFT.tab' ); end }
   x.report( 'reader(table):' ) { n.times do CsvReader.table.read( './MSFT.txt' ); end )
+
+  ## fix/todo:
+  #   add reader(json)
+  #   add reader(yaml)
 end
 
 
