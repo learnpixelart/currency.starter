@@ -36,7 +36,8 @@ def read_table( path )
        ##  note: chomp('') if is an empty string,
        line   = line.chomp( '' )
        values = line.split( /[ ]+/ )
-       values = values.map { |value| value.tr( '•', ' ' ) }   ## translate interpunct back to space
+       ## translate interpunct back to space
+       ## values = values.map { |value| value.tr( '•', ' ' ) }  
        recs << values
      end
   end
