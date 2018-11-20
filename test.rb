@@ -18,8 +18,12 @@ require_relative 'split'
 class TabularTest  < MiniTest::Test
 
 def msft_recs
-[["Date", "Open", "High", "Low", "Close", "Adj Close", "Volume"],
- ["2018-01-02", "86.129997", "86.309998", "85.500000", "85.949997", "84.487411", "22483800"],
+ ## note: for now do NOT include header line
+ ## ["Date", "Open", "High", "Low", "Close", "Adj Close", "Volume"],
+ ##
+ ##  why? might use alternative space e.g. Adj•Close for Adj Close
+
+[["2018-01-02", "86.129997", "86.309998", "85.500000", "85.949997", "84.487411", "22483800"],
  ["2018-01-03", "86.059998", "86.510002", "85.970001", "86.349998", "84.880608", "26061400"],
  ["2018-01-04", "86.589996", "87.660004", "86.570000", "87.110001", "85.627678", "21912000"],
  ["2018-01-05", "87.660004", "88.410004", "87.430000", "88.190002", "86.689301", "23407100"],
@@ -36,21 +40,21 @@ def test_read_csv
   recs = read_csv( './MSFT.csv' )
 
   assert_equal 225, recs.size
-  assert_equal msft_recs, recs[0..10]
+  assert_equal msft_recs, recs[1..10]   ## note: skip header row
 end
 
 def test_read_tab
   recs = read_tab( './MSFT.tab' )
 
   assert_equal 225, recs.size
-  assert_equal msft_recs, recs[0..10]
+  assert_equal msft_recs, recs[1..10]
 end
 
 def test_read_table
   recs = read_table( './MSFT.txt' )
 
   assert_equal 225, recs.size
-  assert_equal msft_recs, recs[0..10]
+  assert_equal msft_recs, recs[1..10]
 end
 
 
@@ -58,7 +62,7 @@ def test_csv_std
   recs = CSV.read( './MSFT.csv' )
 
   assert_equal 225, recs.size
-  assert_equal msft_recs, recs[0..10]
+  assert_equal msft_recs, recs[1..10]
 end
 
 
@@ -66,25 +70,22 @@ def test_reader_csv
   recs = CsvReader.read( './MSFT.csv' )
 
   assert_equal 225, recs.size
-  assert_equal msft_recs, recs[0..10]
+  assert_equal msft_recs, recs[1..10]
 end
 
 def test_reader_tab
   recs = CsvReader.tab.read( './MSFT.tab' )
 
   assert_equal 225, recs.size
-  assert_equal msft_recs, recs[0..10]
+  assert_equal msft_recs, recs[1..10]
 end
 
-
-=begin
 def test_reader_table
   recs = CsvReader.table.read( './MSFT.txt' )
 
   assert_equal 225, recs.size
-  assert_equal msft_recs, recs[0..10]
+  assert_equal msft_recs, recs[1..10]
 end
-=end
 
 
 
