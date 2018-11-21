@@ -3,7 +3,7 @@
 
 ## Finance
 
-Source: Yahoo! Finance <https://finance.yahoo.com> - Historical Stock Price Data (Available for Download as CSV).
+Source: Yahoo! Finance <<https://finance.yahoo.com>> - Historical Stock Price Data (Available for Download as CSV).
 Steps:
 
 - Search for stock ticker symbol
@@ -23,7 +23,7 @@ Examples:
 
 ## Weather
 
-Source: Weather Station of the University of Waterloo, Ontario, Canada <http://weather.uwaterloo.ca> -
+Source: Weather Station of the University of Waterloo, Ontario, Canada <<http://weather.uwaterloo.ca>>
        
 Datasets:
 - <http://weather.uwaterloo.ca/download/Hobo_15minutedata_2017.csv>
