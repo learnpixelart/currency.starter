@@ -12,7 +12,7 @@ Steps:
 - Click Download Data
 
 Examples:
-- [GOOGL](https://finance.yahoo.com/quote/GOOG/history) - Alphabet Inc. (Google) - Class A Shares
+- [GOOGL](https://finance.yahoo.com/quote/GOOGL/history) - Alphabet Inc. (Google) - Class A Shares
 - [APPL](https://finance.yahoo.com/quote/AAPL/history) - Apple Inc.
 - [FB](https://finance.yahoo.com/quote/FB/history) - Facebook Inc.
 - [AMZN](https://finance.yahoo.com/quote/AMZN/history) - Amazon Inc.
