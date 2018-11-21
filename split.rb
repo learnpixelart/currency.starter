@@ -5,7 +5,7 @@ def read_csv( path )
   File.open( path, 'r:utf-8' ) do |f|
      f.each_line do |line|
        ##  note: chomp('') if is an empty string,
-       line   = line.chomp( '' )
+       line   = line.chomp( '' )    ## fix: use line.chomp!  inplace - why? why not?
        values = line.split( ',' )
        recs << values
      end
@@ -20,7 +20,7 @@ def read_tab( path )
   File.open( path, 'r:utf-8' ) do |f|
      f.each_line do |line|
        ##  note: chomp('') if is an empty string,
-       line   = line.chomp( '' )
+       line   = line.chomp( '' )  ## fix: use line.chomp!  inplace - why? why not?
        values = line.split( "\t" )
        recs << values
      end
@@ -34,10 +34,10 @@ def read_table( path )
   File.open( path, 'r:utf-8' ) do |f|
      f.each_line do |line|
        ##  note: chomp('') if is an empty string,
-       line   = line.chomp( '' )
-       values = line.split( /[ ]+/ )
+       line   = line.chomp( '' )   ## fix: use line.chomp!  inplace - why? why not?
+       values = line.split( /[ \t]+/ )
        ## translate interpunct back to space
-       ## values = values.map { |value| value.tr( '•', ' ' ) }  
+       ## values = values.map { |value| value.tr( '•', ' ' ) }
        recs << values
      end
   end

@@ -6,12 +6,8 @@
 
 require 'minitest/autorun'
 
+require_relative 'helper'    ## note: adds LenientCSV.read
 
-require 'csv'
-require 'csvreader'
-
-
-require_relative 'split'
 
 
 
@@ -55,6 +51,11 @@ def test_read_table
 
   assert_equal 225, recs.size
   assert_equal msft_recs, recs[1..10]
+
+  recs = read_table( './MSFT.tab' )
+
+  assert_equal 225, recs.size
+  assert_equal msft_recs, recs[1..10]
 end
 
 
@@ -85,8 +86,58 @@ def test_reader_table
 
   assert_equal 225, recs.size
   assert_equal msft_recs, recs[1..10]
+
+  recs = CsvReader.table.read( './MSFT.tab' )
+
+  assert_equal 225, recs.size
+  assert_equal msft_recs, recs[1..10]
 end
 
+
+def test_reader_yaml
+  recs = CsvYaml.read( './MSFT.csv' )
+
+  assert_equal 225, recs.size
+  assert_equal [[Date.new( 2018, 1, 2 ), 86.129997, 86.309998, 85.5,      85.949997, 84.487411, 22483800],
+                [Date.new( 2018, 1, 3 ), 86.059998, 86.510002, 85.970001, 86.349998, 84.880608, 26061400],
+                [Date.new( 2018, 1, 4 ), 86.589996, 87.660004, 86.57,     87.110001, 85.627678, 21912000],
+                [Date.new( 2018, 1, 5 ), 87.660004, 88.410004, 87.43,     88.190002, 86.689301, 23407100],
+                [Date.new( 2018, 1, 8 ), 88.199997, 88.580002, 87.599998, 88.279999, 86.777763, 22113000]], recs[1..5]
+end
+
+def test_reader_json
+  recs = CsvYaml.read( './MSFT.json.csv' )
+
+  assert_equal 225, recs.size
+  assert_equal [["2018-01-02", 86.129997, 86.309998, 85.5,      85.949997, 84.487411, 22483800],
+                ["2018-01-03", 86.059998, 86.510002, 85.970001, 86.349998, 84.880608, 26061400],
+                ["2018-01-04", 86.589996, 87.660004, 86.57,     87.110001, 85.627678, 21912000],
+                ["2018-01-05", 87.660004, 88.410004, 87.43,     88.190002, 86.689301, 23407100],
+                ["2018-01-08", 88.199997, 88.580002, 87.599998, 88.279999, 86.777763, 22113000]], recs[1..5]
+end
+
+
+
+def test_hippie
+  recs = HippieCSV.read( './MSFT.csv' )
+
+  assert_equal 225, recs.size
+  assert_equal msft_recs, recs[1..10]
+end
+
+def test_lenient
+  recs = LenientCSV.read( './MSFT.csv' )
+
+  assert_equal 225, recs.size
+  assert_equal msft_recs, recs[1..10]
+end
+
+
+
+def test_wtf
+  ## note: only returns errors (NOT records)
+  pp WtfCSV.scan( './MSFT.csv' )
+end
 
 
 end # class TabularTest
