@@ -24,8 +24,7 @@ Examples:
 ## Weather
 
 Source: Weather Station of the University of Waterloo, Ontario, Canada <http://weather.uwaterloo.ca> -
-Weather data from the weather station of the University of Waterloo, Ontario, Canada
-
+       
 Datasets:
 - <http://weather.uwaterloo.ca/download/Hobo_15minutedata_2017.csv>
 
