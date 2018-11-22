@@ -67,7 +67,7 @@ reader(yaml):    38.485000  15.672000  54.157000 ( 54.229705)
 And the winner is...
 
 
-Of course - nothing is faster than "plain" `string#split` (with "simple csv", that is, no escape rules and edge cases):
+Of course - nothing is faster than "plain" `String#split` (with "simple csv", that is, no escape rules and edge cases):
 
 
 ``` ruby
