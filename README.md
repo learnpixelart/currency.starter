@@ -30,6 +30,7 @@ reader(table)*:   5.578000   0.171000   5.749000 (  5.755868)
 reader(table):    5.609000   0.282000   5.891000 (  5.905285)
 reader(json):     5.922000   0.328000   6.250000 (  6.252215)
 reader(yaml):   120.250000  54.485000 174.735000 (174.893803)
+
 hippie:          13.906000   0.484000  14.390000 ( 14.434999)
 wtf:             29.234000   0.250000  29.484000 ( 29.506184)
 lenient:          5.391000   0.266000   5.657000 (  5.648916)
@@ -55,7 +56,7 @@ reader(yaml):    38.485000  15.672000  54.157000 ( 54.229705)
 ```
 
 
-(*): Note: YAML and JSON - of course - always use YAML and JSON encoding (and data coversion) rules :-).
+(*): Note: YAML and JSON - of course - always use YAML and JSON encoding (and data conversion) rules :-).
 
 
 
