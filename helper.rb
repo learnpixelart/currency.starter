@@ -16,6 +16,11 @@ require 'lenient_csv'
 
 
 
+def data_dir
+  './datasets'
+end
+
+
 
 class LenientCSV
   def self.read( path )

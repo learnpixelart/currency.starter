@@ -1,17 +1,17 @@
 # encoding: utf-8
 
 ###
-## note: use ruby ./test.rb to run test
+## note: use ruby ./test/test_read.rb to run test
 
 
 require 'minitest/autorun'
 
-require_relative 'helper'    ## note: adds LenientCSV.read
+require_relative '../helper'    ## note: adds LenientCSV.read
 
 
 
 
-class TabularTest  < MiniTest::Test
+class TestRead  < MiniTest::Test
 
 def msft_recs
  ## note: for now do NOT include header line
@@ -33,26 +33,26 @@ end
 
 
 def test_read_csv
-  recs = read_csv( './MSFT.csv' )
+  recs = read_csv( "#{data_dir}/finance/MSFT.csv" )
 
   assert_equal 225, recs.size
   assert_equal msft_recs, recs[1..10]   ## note: skip header row
 end
 
 def test_read_tab
-  recs = read_tab( './MSFT.tab' )
+  recs = read_tab( "#{data_dir}/finance/o/MSFT.tab" )
 
   assert_equal 225, recs.size
   assert_equal msft_recs, recs[1..10]
 end
 
 def test_read_table
-  recs = read_table( './MSFT.txt' )
+  recs = read_table( "#{data_dir}/finance/o/MSFT.txt" )
 
   assert_equal 225, recs.size
   assert_equal msft_recs, recs[1..10]
 
-  recs = read_table( './MSFT.tab' )
+  recs = read_table( "#{data_dir}/finance/o/MSFT.tab" )
 
   assert_equal 225, recs.size
   assert_equal msft_recs, recs[1..10]
@@ -60,7 +60,7 @@ end
 
 
 def test_csv_std
-  recs = CSV.read( './MSFT.csv' )
+  recs = CSV.read( "#{data_dir}/finance/MSFT.csv" )
 
   assert_equal 225, recs.size
   assert_equal msft_recs, recs[1..10]
@@ -68,26 +68,26 @@ end
 
 
 def test_reader_csv
-  recs = CsvReader.read( './MSFT.csv' )
+  recs = CsvReader.read( "#{data_dir}/finance/MSFT.csv" )
 
   assert_equal 225, recs.size
   assert_equal msft_recs, recs[1..10]
 end
 
 def test_reader_tab
-  recs = CsvReader.tab.read( './MSFT.tab' )
+  recs = CsvReader.tab.read( "#{data_dir}/finance/o/MSFT.tab" )
 
   assert_equal 225, recs.size
   assert_equal msft_recs, recs[1..10]
 end
 
 def test_reader_table
-  recs = CsvReader.table.read( './MSFT.txt' )
+  recs = CsvReader.table.read( "#{data_dir}/finance/o/MSFT.txt" )
 
   assert_equal 225, recs.size
   assert_equal msft_recs, recs[1..10]
 
-  recs = CsvReader.table.read( './MSFT.tab' )
+  recs = CsvReader.table.read( "#{data_dir}/finance/o/MSFT.tab" )
 
   assert_equal 225, recs.size
   assert_equal msft_recs, recs[1..10]
@@ -95,7 +95,7 @@ end
 
 
 def test_reader_yaml
-  recs = CsvYaml.read( './MSFT.csv' )
+  recs = CsvYaml.read( "#{data_dir}/finance/MSFT.csv" )
 
   assert_equal 225, recs.size
   assert_equal [[Date.new( 2018, 1, 2 ), 86.129997, 86.309998, 85.5,      85.949997, 84.487411, 22483800],
@@ -106,7 +106,7 @@ def test_reader_yaml
 end
 
 def test_reader_json
-  recs = CsvYaml.read( './MSFT.json.csv' )
+  recs = CsvYaml.read( "#{data_dir}/finance/o/MSFT.json.csv" )
 
   assert_equal 225, recs.size
   assert_equal [["2018-01-02", 86.129997, 86.309998, 85.5,      85.949997, 84.487411, 22483800],
@@ -119,14 +119,14 @@ end
 
 
 def test_hippie
-  recs = HippieCSV.read( './MSFT.csv' )
+  recs = HippieCSV.read( "#{data_dir}/finance/MSFT.csv" )
 
   assert_equal 225, recs.size
   assert_equal msft_recs, recs[1..10]
 end
 
 def test_lenient
-  recs = LenientCSV.read( './MSFT.csv' )
+  recs = LenientCSV.read( "#{data_dir}/finance/MSFT.csv" )
 
   assert_equal 225, recs.size
   assert_equal msft_recs, recs[1..10]
@@ -136,8 +136,8 @@ end
 
 def test_wtf
   ## note: only returns errors (NOT records)
-  pp WtfCSV.scan( './MSFT.csv' )
+  pp WtfCSV.scan( "#{data_dir}/finance/MSFT.csv" )
 end
 
 
-end # class TabularTest
+end # class TestRead
