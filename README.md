@@ -61,6 +61,27 @@ reader(yaml):    38.485000  15.672000  54.157000 ( 54.229705)
 
 
 
+## Updates
+
+Thanks to [Victor Moroz](https://github.com/v66moroz):
+
+```
+x.report( 'xcsv:' )             { n.times do XCSV.open( "#{data_dir}/finance/MSFT.csv", &:to_a); end }
+x.report( 'fastest-csv:' )      { n.times do FastestCSV.read( "#{data_dir}/finance/MSFT.csv" ); end }
+
+                      user     system      total        real
+std:              3.426003   0.031991   3.457994 (  3.458502)
+split:            0.910320   0.008102   0.918422 (  0.918477)
+lenient:          3.405903   0.031962   3.437865 (  3.438372)
+xcsv:             0.948309   0.020006   0.968315 (  0.968342)
+fastest-csv:      0.568832   0.020016   0.588848 (  0.588900)
+```
+
+- CSV fields can contain commas, quotes and newlines, none of these is covered by split.
+- [FastestCSV](https://github.com/brightcode/fastest-csv) (gem: [fastest-csv](https://rubygems.org/gems/fastest-csv)) requires C, doesn't cover newlines (in quotes).
+- [XCSV](https://github.com/v66moroz/xcsv) (gem: [xcsv](https://rubygems.org/gems/xcsv)) requires Rust and in the early stage of development, but can be easily extended.
+
+
 
 ## Conclusion
 
