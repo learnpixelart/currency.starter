@@ -65,10 +65,14 @@ reader(yaml):    38.485000  15.672000  54.157000 ( 54.229705)
 
 Thanks to [Victor Moroz](https://github.com/v66moroz):
 
+``` ruby
+x.report( 'xcsv:' )         { n.times do XCSV.open( "#{data_dir}/finance/MSFT.csv", &:to_a); end }
+x.report( 'fastest-csv:' )  { n.times do FastestCSV.read( "#{data_dir}/finance/MSFT.csv" ); end }
 ```
-x.report( 'xcsv:' )             { n.times do XCSV.open( "#{data_dir}/finance/MSFT.csv", &:to_a); end }
-x.report( 'fastest-csv:' )      { n.times do FastestCSV.read( "#{data_dir}/finance/MSFT.csv" ); end }
 
+resulting in:
+
+```   
                       user     system      total        real
 std:              3.426003   0.031991   3.457994 (  3.458502)
 split:            0.910320   0.008102   0.918422 (  0.918477)
