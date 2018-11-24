@@ -1,7 +1,9 @@
 # encoding: utf-8
 
 ###
-## note: use ruby ./test/test_read.rb to run test
+#  note: use
+#     $ ruby ./test/test_read.rb
+#   to run test
 
 
 require 'minitest/autorun'
@@ -95,7 +97,7 @@ end
 
 
 def test_reader_yaml
-  recs = CsvYaml.read( "#{data_dir}/finance/MSFT.csv" )
+  recs = CsvReader.yaml.read( "#{data_dir}/finance/MSFT.csv" )
 
   assert_equal 225, recs.size
   assert_equal [[Date.new( 2018, 1, 2 ), 86.129997, 86.309998, 85.5,      85.949997, 84.487411, 22483800],
@@ -106,7 +108,7 @@ def test_reader_yaml
 end
 
 def test_reader_json
-  recs = CsvYaml.read( "#{data_dir}/finance/o/MSFT.json.csv" )
+  recs = CsvReader.json.read( "#{data_dir}/finance/o/MSFT.json.csv" )
 
   assert_equal 225, recs.size
   assert_equal [["2018-01-02", 86.129997, 86.309998, 85.5,      85.949997, 84.487411, 22483800],

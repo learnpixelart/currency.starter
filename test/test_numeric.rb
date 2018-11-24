@@ -1,7 +1,9 @@
 # encoding: utf-8
 
 ###
-## note: use ruby ./test/test_raw.rb to run test
+# note: use
+#   $ ruby ./test/test_numeric.rb
+#  to run test
 
 
 require 'minitest/autorun'
@@ -11,7 +13,7 @@ require_relative '../helper'    ## note: adds LenientCSV.read
 
 
 
-class TestRaw  < MiniTest::Test
+class TestNumeric  < MiniTest::Test
 
 def weather_recs
  ## note: for now do NOT include header line
@@ -92,14 +94,14 @@ def test_reader_numeric
 end
 
 def test_reader_json
-  recs = CsvJson.read( "#{data_dir}/weather/o/Hobo_15minute_2017.json.csv" )
+  recs = CsvReader.json.read( "#{data_dir}/weather/o/Hobo_15minute_2017.json.csv" )
 
   assert_equal 300, recs.size
   assert_equal weather_recs, recs[1..5]
 end
 
 def test_reader_yaml
-  recs = CsvYaml.read( "#{data_dir}/weather/Hobo_15minute_2017.csv" )
+  recs = CsvReader.yaml.read( "#{data_dir}/weather/Hobo_15minute_2017.csv" )
 
   ## pp recs[0]   ## note: skip header row
   assert_equal 300, recs.size

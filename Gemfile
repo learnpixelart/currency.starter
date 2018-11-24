@@ -1,7 +1,5 @@
 
 gem 'csvreader'
-gem 'csvjson'
-gem 'csvyaml'
 
 
 gem 'hippie_csv'
