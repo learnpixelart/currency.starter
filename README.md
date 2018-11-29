@@ -13,7 +13,7 @@ to run.
 
 
 
-**"Raw" Read Benchmark.**  Returns all strings - no type inference or data conversion (*).
+**"Raw" Read Benchmark.**  Returns all strings - no type inference or data conversion [a].
 
 
 ```
@@ -39,16 +39,15 @@ wtf:                 29.234000   0.250000  29.484000 ( 29.506184)
 lenient [b]:          5.391000   0.266000   5.657000 (  5.648916)
 ```
 
+Notes:
 
-Note: [a] - YAML and JSON - of course - always use YAML and JSON encoding (and data conversion) rules :-).
-
-[b] - Lenient just "scans" for errors and warnings (that is, does NOT return or construct any records).
-
-
+- [a] - YAML and JSON - of course - always use YAML and JSON encoding (and data conversion) rules :-).
+- [b] - Lenient just "scans" for errors and warnings (that is, does NOT return or construct any records).
 
 
-**Numerics Benchmark.**  Returns all numbers - simple type inference or data conversion(*) - it's all numbers - all the time (except for the header row).
 
+
+**Numerics Benchmark.**  Returns all numbers - simple type inference or data conversion [a] - it's all numbers - all the time (except for the header row).
 
 
 ```
@@ -66,7 +65,9 @@ reader(json) [a]:     1.125000   0.062000   1.187000 (  1.191145)
 reader(yaml) [a]:    38.485000  15.672000  54.157000 ( 54.229705)
 ```
 
-Note: [a] - YAML and JSON - of course - always use YAML and JSON encoding (and data conversion) rules :-).
+Notes:
+
+- [a] - YAML and JSON - of course - always use YAML and JSON encoding (and data conversion) rules :-).
 
 
 
@@ -83,15 +84,17 @@ x.report( 'fastest-csv:' )  { n.times do FastestCSV.read( "#{data_dir}/finance/M
 resulting in:
 
 ```   
-                      user     system      total        real
-std:              3.426003   0.031991   3.457994 (  3.458502)
-split:            0.910320   0.008102   0.918422 (  0.918477)
-xcsv:             0.948309   0.020006   0.968315 (  0.968342)
-fastest-csv:      0.568832   0.020016   0.588848 (  0.588900)
+                          user     system      total        real
+std:                  3.426003   0.031991   3.457994 (  3.458502)
+split:                0.910320   0.008102   0.918422 (  0.918477)
+xcsv [a]:             0.948309   0.020006   0.968315 (  0.968342)
+fastest-csv [b]:      0.568832   0.020016   0.588848 (  0.588900)
 ```
 
-- [FastestCSV](https://github.com/brightcode/fastest-csv) (gem: [fastest-csv](https://rubygems.org/gems/fastest-csv)) requires C, doesn't cover newlines (in quotes).
-- [XCSV](https://github.com/v66moroz/xcsv) (gem: [xcsv](https://rubygems.org/gems/xcsv)) requires Rust and in the early stage of development, but can be easily extended.
+Notes:
+
+- [a] - [XCSV](https://github.com/v66moroz/xcsv) (gem: [xcsv](https://rubygems.org/gems/xcsv)) requires Rust and in the early stage of development, but can be easily extended.
+- [b] - [FastestCSV](https://github.com/brightcode/fastest-csv) (gem: [fastest-csv](https://rubygems.org/gems/fastest-csv)) requires C, doesn't cover newlines (in quotes).
 
 
 
@@ -117,5 +120,7 @@ def read_faster_csv( path, sep: ',' )
 end
 ```
 
+
 Note: "Real World" CSV comes in many formats / flavors / dialects
-and CSV fields can contain commas, quotes and newlines, none of these is covered by split.
+and CSV fields can contain commas, quotes and newlines,
+none of these escape rules and edge cases is covered by split.
