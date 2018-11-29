@@ -93,8 +93,8 @@ fastest-csv [b]:      0.568832   0.020016   0.588848 (  0.588900)
 
 Notes:
 
-- [a] - [XCSV](https://github.com/v66moroz/xcsv) (gem: [xcsv](https://rubygems.org/gems/xcsv)) requires Rust and in the early stage of development, but can be easily extended.
-- [b] - [FastestCSV](https://github.com/brightcode/fastest-csv) (gem: [fastest-csv](https://rubygems.org/gems/fastest-csv)) requires C, doesn't cover newlines (in quotes).
+- [a] - [XCSV](https://github.com/v66moroz/xcsv) (gem: [xcsv](https://rubygems.org/gems/xcsv)) requires Rust and in the early stage of development, but can be easily extended
+- [b] - [FastestCSV](https://github.com/brightcode/fastest-csv) (gem: [fastest-csv](https://rubygems.org/gems/fastest-csv)) requires C
 
 
 
@@ -124,3 +124,5 @@ end
 Note: "Real World" CSV comes in many formats / flavors / dialects
 and CSV fields can contain commas, quotes and newlines,
 none of these escape rules and edge cases are covered by split.
+
+
