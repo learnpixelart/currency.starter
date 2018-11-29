@@ -26,8 +26,9 @@ NOT_COMMA_RX = /  [^,]*  /x  ## everything until the next comma (or end of line)
 
 def readline_scanner( input )
   recs = []
+  buf  = StringScanner.new( "" )
   input.each_line do |line|
-     buf = StringScanner.new( line.chomp )
+     buf.string = line.chomp    ## was: StringScanner.new( line.chomp )
      rec = []
      loop do
        value = buf.scan( NOT_COMMA_RX )

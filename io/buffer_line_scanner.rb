@@ -12,7 +12,7 @@ class BufferLineScanner
 
   def getc
     if @buf.eos?
-      @buf = @input.gets     ## was: StringScanner.new( @input.gets )
+      @buf.string = @input.gets     ## was: StringScanner.new( @input.gets )
     end
 
     ## todo: check - if works for multi-byte chars??
@@ -33,7 +33,7 @@ class BufferLineScanner
     end
 
     if @buf.eos?
-       @buf = @input.gets    ## was: StringScanner.new( @input.gets )
+       @buf.string = @input.gets    ## was: StringScanner.new( @input.gets )
     end
 
     ## todo: check - if works for multi-byte chars??
