@@ -2,13 +2,13 @@
 
 ###
 ## note: to run use:
-##  ruby ./io/test_sample.rb
+##  ruby ./io/test/test_sample.rb
 
 
 require 'minitest/autorun'
 
 
-require_relative 'helper'
+require_relative '../helper'
 
 
 class TestSample  < MiniTest::Test

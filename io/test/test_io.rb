@@ -2,7 +2,7 @@
 
 ###
 ## note: to run use:
-##  ruby ./io/test_io.rb
+##  ruby ./io/test/test_io.rb
 
 
 require 'minitest/autorun'

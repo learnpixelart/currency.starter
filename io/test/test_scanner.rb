@@ -2,7 +2,7 @@
 
 ###
 ## note: to run use:
-##  ruby ./io/test_scanner.rb
+##  ruby ./io/test/test_scanner.rb
 
 
 require 'minitest/autorun'
