@@ -123,4 +123,4 @@ end
 
 Note: "Real World" CSV comes in many formats / flavors / dialects
 and CSV fields can contain commas, quotes and newlines,
-none of these escape rules and edge cases is covered by split.
+none of these escape rules and edge cases are covered by split.
