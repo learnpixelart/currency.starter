@@ -63,16 +63,16 @@ end
 Let's have a looksie at the first spots version (240×240 -- 24×10px spots)
 for dodge #0, #6, #10.
 
-![](i/no1/dodge-0-spots-v1.png)
-![](i/no1/dodge-6-spots-v1.png)
-![](i/no1/dodge-10-spots-v1.png)
+![](i/dodge-0-spots-v1.png)
+![](i/dodge-6-spots-v1.png)
+![](i/dodge-10-spots-v1.png)
 
 And the second spots version (235×235 -- 24×5px spots + (24-1)×5px spacing)
 for dodge #0, #6, #10.
 
-![](i/no1/dodge-0-spots-v2.png)
-![](i/no1/dodge-6-spots-v2.png)
-![](i/no1/dodge-10-spots-v2.png)
+![](i/dodge-0-spots-v2.png)
+![](i/dodge-6-spots-v2.png)
+![](i/dodge-10-spots-v2.png)
 
 
 
