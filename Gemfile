@@ -1,7 +1,0 @@
-
-gem 'csvreader'
-
-
-gem 'hippie_csv'
-gem 'wtf_csv'
-gem 'lenientcsv'
