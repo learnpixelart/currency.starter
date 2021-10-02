@@ -3,15 +3,12 @@
 #    $ ruby ./generate.rb
 
 
-
 require 'pixelart'
 
 
-## todo/fix: add "generic" Composite.read helper to pixelart upstream!!!!
-path = "./i/dodge.png"
-img = ChunkyPNG::Image.from_file( path )
-dodges = ImageComposite.new( img, width: 24, height: 24 )
+dodges = ImageComposite.read( "./i/dodge.png", width: 24, height: 24 )
 
+pp dodges.count  #=> 25
 
 
 
@@ -28,10 +25,8 @@ BACKGROUND_SPOTS = [
 
 
 
-## note: count returns tile count (number of tile images in composite)
-dodges.count.times do |id|
-  dodge = dodges[id]
-
+dodges.each_with_index do |dodge, id|
+  puts "==> dodge #{id}..."
 
   ###
   #  for testing generate "basic"

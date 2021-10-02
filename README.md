@@ -41,13 +41,11 @@ Bingo!
 ## Step 2 - Turn the 24×24 Pixel Art into Modern Spotty Dotty Art
 
 
-Let's loop over all punk images in the composites one-by-one:
+Let's loop over all dodge images in the composite one-by-one:
 
 
 ``` ruby
-dodges.count.times do |id|
-  dodge = dodges[id]
-
+dodges.each_with_index do |dodge, id|
   ###
   #  for testing generate "basic"
   #     dodge images with spots (no "currency" background)
@@ -94,9 +92,7 @@ BACKGROUND_SPOTS = [
  'C2B6AF', 'BFC0C5', '3BC8B5',
 ]
 
-dodges.count.times do |id|
-  dodge = dodges[id]
-
+dodges.each_with_index do |dodge, id|
   #####
   #  collection №1
   dodge_spots = dodge.zoom(2).spots( 5, spacing: 5,
