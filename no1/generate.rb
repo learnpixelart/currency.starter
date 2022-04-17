@@ -1,14 +1,14 @@
 ###############################
 # to run use:
-#    $ ruby ./generate.rb
+#    $ ruby ./no1/generate.rb
 
 
 require 'pixelart'
 
 
-dodges = ImageComposite.read( "./i/dodge.png", width: 24, height: 24 )
+doges = ImageComposite.read( "./i/doge.png", width: 24, height: 24 )
 
-pp dodges.count  #=> 25
+pp doges.count  #=> 25
 
 
 
@@ -25,42 +25,42 @@ BACKGROUND_SPOTS = [
 
 
 
-dodges.each_with_index do |dodge, id|
-  puts "==> dodge #{id}..."
+doges.each_with_index do |doge, id|
+  puts "==> doge #{id}..."
 
   ###
   #  for testing generate "basic"
-  #     dodge images with spots (no background)
-  dodge_spots = dodge.spots( 10 )
-  dodge_spots.save( "./tmp/dodge-#{id}-spots-v1.png" )
+  #     doge images with spots (no background)
+  doge_spots = doge.spots( 10 )
+  doge_spots.save( "./tmp/doge-#{id}-spots-v1.png" )
 
-  dodge_spots = dodge.spots( 5, spacing: 5, center: [-1,1], radius: [3,6] )
-  dodge_spots.save( "./tmp/dodge-#{id}-spots-v2.png" )
+  doge_spots = doge.spots( 5, spacing: 5, center: [-1,1], radius: [3,6] )
+  doge_spots.save( "./tmp/doge-#{id}-spots-v2.png" )
 
 
   #####
   #  collection no 1
-  dodge_spots = dodge.zoom(2).spots( 5, spacing: 5,
+  doge_spots = doge.zoom(2).spots( 5, spacing: 5,
                              center: [-1,1], radius: [3,6],
                              background: BACKGROUND_SPOTS )
 
-  dodge_spots.save( "./o/no1/dodge-#{id}-currency@2x.png" )
+  doge_spots.save( "./o/no1/doge-#{id}-currency@2x.png" )
 
 
   #####
   #  collection no 2
-  dodge_spots = dodge.zoom(2).spots( 5, spacing: 5,
+  doge_spots = doge.zoom(2).spots( 5, spacing: 5,
                              center: [-3,3], radius: [2,8],
                              background: BACKGROUND_SPOTS )
 
-  dodge_spots.save( "./o/no2/dodge-#{id}-currency@2x.png" )
+  doge_spots.save( "./o/no2/doge-#{id}-currency@2x.png" )
 
 
-  dodge_spots = dodge.zoom(2).spots_hidef( 5, spacing: 5,
+  doge_spots = doge.zoom(2).spots_hidef( 5, spacing: 5,
                               center: [-3,3], radius: [2,8],
                               background: BACKGROUND_SPOTS )
 
-  dodge_spots.save( "./o/no2/dodge-#{id}-currency@2x.svg" )
+  doge_spots.save( "./o/no2/doge-#{id}-currency@2x.svg" )
 end
 
 

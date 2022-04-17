@@ -1,18 +1,20 @@
-# Currency Art Collection Quick Starter - Generate Your Own Currency Dodge Collections
+# Currency Art Collection Quick Starter - Generate Your Own Currency Collections
 
 
-Let's start with the 25 Dodge (Shiba Inu) Punk series.
+## Collection №1 - Doge
 
-![](i/dodge.png)
+Let's start with the 25 Doge (Shiba Inu) Punk series.
+
+![](i/doge.png)
 
 
 Note: See
 [**Pixel Art Collection Quick Starter - Generate Algorithmically Your Own Curated (or Randomized) Collection**](https://github.com/cryptopunksnotdead/punks.starter)
-to create your own dodge punk series from scratch.
+to create your own doge punk series from scratch.
 
 
 
-Let's turn the "classic" 24x24 dodge (shiba inu) punk series
+Let's turn the "classic" 24x24 doge (shiba inu) punk series
 into Damien Hirst's "The Currency" inspired
 modern dotty spotty art.
 
@@ -24,15 +26,15 @@ modern dotty spotty art.
 ``` ruby
 require 'pixelart'
 
-dodges = ImageComposite.read( "i/dodge.png", width: 24, height: 24 )
+doges = ImageComposite.read( "i/doge.png", width: 24, height: 24 )
 ```
 
 Yes, that's it.
-To double check that we got 25 dodge punks try
+To double check that we got 25 doge punks try
 the (tile) count:
 
 ``` ruby
-dodges.count #=> 25
+doges.count #=> 25
 ```
 
 Bingo!
@@ -41,36 +43,36 @@ Bingo!
 ## Step 2 - Turn the 24×24 Pixel Art into Modern Spotty Dotty Art
 
 
-Let's loop over all dodge images in the composite one-by-one:
+Let's loop over all doge images in the composite one-by-one:
 
 
 ``` ruby
-dodges.each_with_index do |dodge, id|
+doges.each_with_index do |doge, id|
   ###
   #  for testing generate "basic"
-  #     dodge images with spots (no "currency" background)
-  dodge_spots = dodge.spots( 10 )
-  dodge_spots.save( "tmp/dodge-#{id}-spots-v1.png" )
+  #     doge images with spots (no "currency" background)
+  doge_spots = doge.spots( 10 )
+  doge_spots.save( "tmp/doge-#{id}-spots-v1.png" )
 
-  dodge_spots = dodge.spots( 5,
+  doge_spots = doge.spots( 5,
                   spacing: 5, center: [-1,1], radius: [3,6] )
-  dodge_spots.save( "tmp/dodge-#{id}-spots-v2.png" )
+  doge_spots.save( "tmp/doge-#{id}-spots-v2.png" )
 end
 ```
 
 Let's have a looksie at the first spots version (240×240 -- 24×10px spots)
-for dodge #0, #6, #10.
+for doge #0, #6, #10.
 
-![](i/dodge-0-spots-v1.png)
-![](i/dodge-6-spots-v1.png)
-![](i/dodge-10-spots-v1.png)
+![](i/doge-0-spots-v1.png)
+![](i/doge-6-spots-v1.png)
+![](i/doge-10-spots-v1.png)
 
 And the second spots version (235×235 -- 24×5px spots + (24-1)×5px spacing)
-for dodge #0, #6, #10.
+for doge #0, #6, #10.
 
-![](i/dodge-0-spots-v2.png)
-![](i/dodge-6-spots-v2.png)
-![](i/dodge-10-spots-v2.png)
+![](i/doge-0-spots-v2.png)
+![](i/doge-6-spots-v2.png)
+![](i/doge-10-spots-v2.png)
 
 
 
@@ -92,32 +94,32 @@ BACKGROUND_SPOTS = [
  'C2B6AF', 'BFC0C5', '3BC8B5',
 ]
 
-dodges.each_with_index do |dodge, id|
+doges.each_with_index do |doge, id|
   #####
   #  collection №1
-  dodge_spots = dodge.zoom(2).spots( 5, spacing: 5,
+  doge_spots = doge.zoom(2).spots( 5, spacing: 5,
                              center: [-1,1], radius: [3,6],
                              background: BACKGROUND_SPOTS )
 
-  dodge_spots.save( "o/no1/dodge-#{id}-currency@2x.png" )
+  doge_spots.save( "o/no1/doge-#{id}-currency@2x.png" )
 
 
   #####
   #  collection №2
-  dodge_spots = dodge.zoom(2).spots( 5, spacing: 5,
+  doge_spots = doge.zoom(2).spots( 5, spacing: 5,
                              center: [-3,3], radius: [2,8],
                              background: BACKGROUND_SPOTS )
 
-  dodge_spots.save( "o/no2/dodge-#{id}-currency@2x.png" )
+  doge_spots.save( "o/no2/doge-#{id}-currency@2x.png" )
 
 
   # bonus: high-definition (hi-def) XXXL poster-size
   #          vector graphics quality
-  dodge_spots = dodge.zoom(2).spots_hidef( 5, spacing: 5,
+  doge_spots = doge.zoom(2).spots_hidef( 5, spacing: 5,
                               center: [-3,3], radius: [2,8],
                               background: BACKGROUND_SPOTS )
 
-  dodge_spots.save( "o/no2/dodge-#{id}-currency@2x.svg" )
+  doge_spots.save( "o/no2/doge-#{id}-currency@2x.svg" )
 end
 ```
 
@@ -133,27 +135,29 @@ quality vector graphics version (see the `.svg` extension).
 
 
 Let's have a looksie at the biggie 2x (475×475) versions
-for dodge #0, #6, #10.
+for doge #0, #6, #10.
 
 Collection №1
 
-![](i/no1/dodge-0-currency@2x.png)
-![](i/no1/dodge-6-currency@2x.png)
-![](i/no1/dodge-10-currency@2x.png)
+![](i/no1/doge-0-currency@2x.png)
+![](i/no1/doge-6-currency@2x.png)
+![](i/no1/doge-10-currency@2x.png)
 
 
 Collection №2
 
-![](i/no2/dodge-0-currency@2x.png)
-![](i/no2/dodge-6-currency@2x.png)
-![](i/no2/dodge-10-currency@2x.png)
+![](i/no2/doge-0-currency@2x.png)
+![](i/no2/doge-6-currency@2x.png)
+![](i/no2/doge-10-currency@2x.png)
 
 
 
 
 That's it.
 Yes, you can! Change the currency spot colors to your liking
-and generate your own currency dodge collections.
+and generate your own currency doge collections.
+
+
 
 
 
