@@ -1,6 +1,6 @@
 ###############################
 # to run use:
-#    $ ruby ./no1/generate.rb
+#    $ ruby ./doge/generate.rb
 
 
 require 'pixelart'
